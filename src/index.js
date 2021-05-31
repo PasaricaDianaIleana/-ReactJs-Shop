@@ -6,13 +6,12 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
-  <React.StrictMode>
+  
     <Router>
       <Switch>
         <Route path="/" component={App} />
       </Switch>
-    </Router>
-  </React.StrictMode>,
+    </Router>,
   document.getElementById("root")
 );
 // If you want to start measuring performance in your app, pass a function

@@ -6,6 +6,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { Route, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Admin from "./components/Admin";
+import Products from './components/Products'
 function App() {
   return (
     <Container fluid>
@@ -20,7 +21,7 @@ function App() {
           </Switch>
         </Col>
       </Row>
-       
+       <Products/>
     </Container>
 
   );

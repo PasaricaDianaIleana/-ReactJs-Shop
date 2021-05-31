@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState} from 'react'
 import ApiHelpers from "../helpers/api";
 
 
@@ -33,7 +33,7 @@ function AddForm() {
 
         <form onSubmit={(e) => submit(e)}>
             <div className="form-group">
-                <input className="form-control" onChange={(event) => handleChange(event)} id="name" placeholder="name" name="name" value={data.name} type="text"></input>
+                <input className="form-control" onChange={(event) => handleChange(event)} id="name" placeholder="name" name="name" value={data.name } type="text"></input>
             </div>
             <div className="form-group">
                 <button type="submit" className="btn btn-primary" >Add</button>

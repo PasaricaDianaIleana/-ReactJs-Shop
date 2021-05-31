@@ -1,11 +1,14 @@
 import React from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Styles/button.css";
+import CategoriesList from '../components/CategoriesList'
 import "bootstrap/js/src/collapse.js";
 import AddForm from '../components/AddForm'
 import AddProductForm from './AddProductForm';
 function Admin() {
+   
     return (
+        <div>
         <div className="d-flex">
             <div>
             <p>
@@ -32,13 +35,15 @@ function Admin() {
                 </p>
                 <div className="collapse" id="collapseProd">
   <div className="card card-body" >
-      
-
       <AddProductForm/>
   </div>
 </div>
-            
+           
         </div>
+      
+      
+        </div>
+        <CategoriesList/>
         </div>
     )
 }

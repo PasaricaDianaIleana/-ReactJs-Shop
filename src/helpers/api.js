@@ -8,6 +8,12 @@ const ApiClient = {
   post:(url,data)=>{
  return ApiClient.makeRequest(`${API_ROUTE}/${url}`,"POST",data)
   },
+  delete:(url,id,headers = {})=>{
+    return ApiClient.makeRequest(`${API_ROUTE}/${url}`,"DELETE",id,headers)
+  },
+  put:(url,id,data)=>{
+return ApiClient.makeRequest(`${API_ROUTE}/${url}`,"PUT",id,data)
+  },
   makeRequest: async (url, type, params = {}, headers = {}) => {
     try {
       type = type.toUpperCase();
@@ -40,15 +46,26 @@ const ProductCategories = {
   },
   postMethod:async (params) =>{
       return  await ApiClient.post("category",params);
+  },
+  deleteCategory:async(id)=>{
+    return await ApiClient.delete(`category/${id}`);
+  },
+  updateCategory:async(id,params)=>{
+    return await ApiClient.put(`category/${id}`,params)
   }
 };
 const Products={
+  getImage:async(id)=>{
+    return await ApiClient.get(`Produt/${id}`);
+   
+  },
   getAll:async()=>{
-    const {products}=await ApiClient.get("Product");
-    return products.map((p)=>new Product(p.productId,p.name,p.price,p.basePrice,p.description,p.categoryId,p.image))
+    const { products } = await ApiClient.get("product");
+
+    return products.map((p) => new Product(p.productId,p.name,p.price,p.basePrice,p.description,p.categoryId,p.image)); 
   },
   postProduct:async (params)=>{
-    return await ApiClient.post("Product/AddImage",params)
+    return await ApiClient.post("Product",params)
   }
 }
 const ApiHelper = {

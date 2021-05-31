@@ -1,5 +1,5 @@
 import React from "react";
-import ApiHelper from '../helpers/api';
+
 const ProductList=(props)=>{
     return(
         <div className="row">
