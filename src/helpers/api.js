@@ -66,6 +66,12 @@ const Products={
   },
   postProduct:async (params)=>{
     return await ApiClient.post("Product",params)
+  },
+  postImage:async (params,id)=>{
+    return await  ApiClient.post(`product/image/${id}`,params);
+  },
+  deleteProduct:async (id)=>{
+    return await ApiClient.delete(`product/${id}`);
   }
 }
 const ApiHelper = {

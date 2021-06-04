@@ -15,6 +15,9 @@ const Sidebar = (props) => {
   return (
     <Nav className="col-md-12 d-md-block bg-light sidebar">
       <div className="sidebar-sticky"></div>
+      <Nav.Item>
+        <Nav.Link as={Link} to={`/Home`}>Home</Nav.Link>
+      </Nav.Item>
       {categories.map((c) => (
         <Nav.Item key={c.categoryId}>
           <Nav.Link key={c.categoryId} as={Link} to={`/products/${c.categoryId}`}>
@@ -23,6 +26,7 @@ const Sidebar = (props) => {
         </Nav.Item>
         
       ))}
+       
         <Nav.Item><Nav.Link as={Link}  to={`/admin`} > Admin
         </Nav.Link>
         </Nav.Item>
