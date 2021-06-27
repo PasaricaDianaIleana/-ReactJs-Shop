@@ -1,57 +1,52 @@
-import React,{useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import ApiHelper from '../helpers/api';
-import { Card, CardDeck} from 'react-bootstrap'
+import { Card, CardDeck } from 'react-bootstrap'
 import "../Styles/cards.css";
-function Products(){
+const Products = (props) => {
 
-const [products,setProducts]=useState([]);
+  const [products, setProducts] = useState([]);
 
-useEffect(()=>{
+  useEffect(() => {
 
-  ApiHelper.Products.getAll().then(res=>{
+    ApiHelper.Products.getAll().then((res) => {
 
-    console.log(res)
-    setProducts(res)
-  })
-    //fetch('https://localhost:44395/api/produt/44')
-  
-   // .then(res=>{
-     // console.log(res)
-      //setData(res.url)
-  //  })
-
-},[]);
+      setProducts(res)
+      //console.log(res)
+    })
 
 
+  },[]);
+  return (
 
-    return(
+    <div className="container">
+      <div className="row">
 
-      <div className="container">
-          <div className="row">
-           
-            <CardDeck>
-             {
-               products.map((products)=>(
-                 <div className="col-lg-3" >
-                 <Card >
-                   <Card.Img variant="top" src={products.image} className="image"/>
-                   <Card.Body>
-      <Card.Text>
-        
-      </Card.Text>
-    </Card.Body>
-                   </Card>
-                   </div>
-    ))
-             }
-         
-             </CardDeck>
-
+        <CardDeck>
+          {
+            products.map((products) => (
+              <div className="col-lg-3" key={products.productId} >
+                <Card >
                 
+                  <Card.Img variant="top" src={products.image} className="image" alt="image" />
+                  <span>  </span>
+                 
+                  <Card.Body className="card-info">
+                      <span>{products.name}</span>
+                      <p className="base-price"> {products.basePrice} lei</p>
+                      <p className="price">{products.price} lei</p>
+                  </Card.Body>
+                </Card>
               </div>
-          </div>
-      
-    )
+            ))
+          }
+
+        </CardDeck>
+
+
+      </div>
+    </div>
+
+  )
 }
 export default Products

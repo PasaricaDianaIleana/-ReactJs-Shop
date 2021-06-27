@@ -3,13 +3,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../Styles/button.css";
 import CategoriesList from '../components/CategoriesList'
 import "bootstrap/js/src/collapse.js";
-import AddProductForm  from '../components/AddProductForm'
+import ProductsAdmin  from '../components/ProductsAdmin'
 function Admin() {
    
     return (
         <div>
         <CategoriesList/>
-    <AddProductForm/>
+    <ProductsAdmin/>
         </div>
     )
 }

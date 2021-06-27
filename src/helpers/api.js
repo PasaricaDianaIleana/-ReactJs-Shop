@@ -42,7 +42,7 @@ const ProductCategories = {
   all: async () => {
     const { categories } = await ApiClient.get("category");
 
-    return categories.map((c) => new Category(c.categoryId, c.name));
+    return categories.map((c) => new Category(c.categoryId, c.name,c.description));
   },
   postMethod:async (params) =>{
       return  await ApiClient.post("category",params);
@@ -52,20 +52,26 @@ const ProductCategories = {
   },
   updateCategory:async(id,params)=>{
     return await ApiClient.put(`category/${id}`,params)
+  },
+  getCategoryById:async(id)=>{
+    return await ApiClient.get(`category/${id}`)
   }
 };
 const Products={
-  getImage:async(id)=>{
-    return await ApiClient.get(`Produt/${id}`);
-   
-  },
   getAll:async()=>{
     const { products } = await ApiClient.get("product");
 
-    return products.map((p) => new Product(p.productId,p.name,p.price,p.basePrice,p.description,p.categoryId,p.image)); 
+    return products.map((p) => new Product(p.productId,p.name,p.description,p.price,p.basePrice,p.image,p.categoryId));
   },
-  postProduct:async (params)=>{
-    return await ApiClient.post("Product",params)
+  getProductById:async(id)=>{
+return await ApiClient.get(`product/${id}`);
+  },
+  getProductsByCategory:async(id)=>{
+    const { products } = await ApiClient.get(`product/ByCategory/${id}`);
+   return products.map((p) => new Product(p.productId,p.name,p.description,p.price,p.basePrice,p.image,p.categoryId));
+  },
+  editProduct:async(id,data)=>{
+    return await ApiClient.put(`product/${id}`,data);
   },
   postImage:async (params,id)=>{
     return await  ApiClient.post(`product/image/${id}`,params);

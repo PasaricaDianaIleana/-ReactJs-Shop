@@ -7,7 +7,7 @@ import { Route, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Admin from "./components/Admin";
 import Products from './components/Products'
-import UpdateCategory from "./components/UpdateCategory";
+
 
 function App() {
   return (
@@ -18,10 +18,10 @@ function App() {
         </Col>
         <Col lg={10} xs={12} id="page-content-wrapper">
         <Switch>
-            <Route path="/products/:id"  render={(props) => <ProductList  />} />
+            <Route path="/products/:id"  render={(props) => <ProductList {...props}/>} />
             <Route path="/admin" render={(props) =><Admin/>}/>
             <Route path="/home" render={(props)=><Products/>}/>
-            <Route path="/UpdateCategory" render={(props)=><UpdateCategory/>}/>
+           
           </Switch>
         </Col>
       </Row>

@@ -20,7 +20,7 @@ const Sidebar = (props) => {
       </Nav.Item>
       {categories.map((c) => (
         <Nav.Item key={c.categoryId}>
-          <Nav.Link key={c.categoryId} as={Link} to={`/products/${c.categoryId}`}>
+          <Nav.Link key={c.categoryId} as={Link}  to={`/products/${c.categoryId}`}>
             {c.name}
           </Nav.Link>
         </Nav.Item>
